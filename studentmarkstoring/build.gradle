@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 29
@@ -26,6 +25,16 @@ android {
 
 }
 
+publish {
+    userOrg = 'ashokraj-appiness'
+    groupId = 'com.example.studentmarkstoring'
+    artifactId = 'studentmarkstoring'
+    publishVersion = '1.0.0'
+    repoName = 'maven'
+    desc = 'A simple android student details storing library'
+    website = 'https://github.com/AshokRaj-appiness/ITStudentsApp'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -46,5 +55,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
 
 
