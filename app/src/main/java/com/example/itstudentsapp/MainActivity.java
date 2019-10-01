@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.studentmarkstoring.studentmarkstoring.ui.StudentActivity;
+import com.example.studentmarkstoring.ui.StudentActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
