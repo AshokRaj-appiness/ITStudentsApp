@@ -34,10 +34,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     // Room components
-    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
-    implementation 'com.google.android.material:material:1.0.0'
-    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
-    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
 
     // Lifecycle components
     // ViewModel and LiveData
@@ -48,70 +46,5 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-artifacts {
-    archives sourcesJar
-}
 
-group = 'com.example.studentmarkstoring'
-version = '1.0.0'
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            name 'studentmarkstoring'
-            description 'A core library for storing students mark details'
-            url 'https://github.com/AshokRaj-appiness/ITStudentsApp'
-            inceptionYear '2019'
-
-            packaging 'aar'
-            groupId 'com.example.studentmarkstoring'
-            artifactId 'studentmarkstoring'
-            version '1.0.0'
-
-            licenses {
-                license {
-                    name 'The MIT License (MIT)'
-                    url 'https://opensource.org/licenses/MIT'
-                }
-            }
-            scm {
-                connection 'https://github.com/AshokRaj-appiness/ITStudentsApp.git'
-                url 'https://github.com/AshokRaj-appiness/ITStudentsApp'
-
-            }
-            developers {
-                developer {
-                    id = 'ashokraj'
-                    name 'Ashok'
-                }
-            }
-        }
-    }
-}
-
-Properties bintrayProperties = new Properties()
-bintrayProperties.load(project.rootProject.file('bintray.properties').newDataInputStream())
-
-bintray {
-    user = 'ashokraj'
-    key = '2892b3d6387fc0c4a219182090375612bb75dad0'
-    configurations = ['archives']
-    pkg {
-        repo = 'maven'
-        name = 'com.example.studentmarkstoring'
-        userOrg = 'appiness'
-        licenses = ['MIT']
-        vcsUrl = 'https://github.com/AshokRaj-appiness/ITStudentsApp.git'
-        publish = true
-        version {
-            name = '1.0.0'
-            desc = 'student mark storing app'
-            released = new Date()
-            vcsTag = 'v1.0.0'
-        }
-    }
-}
